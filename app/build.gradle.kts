@@ -42,7 +42,14 @@ android {
 }
 
 dependencies {
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
+    // コルーチンのサポートが必要な場合
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+    implementation("com.github.kittinunf.fuel:fuel:2.3.1")
+    implementation("com.github.kittinunf.fuel:fuel-kotlinx-serialization:2.3.1")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -50,8 +57,6 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.fragment.ktx)
-    implementation(libs.fuel)
-    implementation(libs.fuel.kotlinx.serialization)
     implementation(libs.kotlinx.coroutines.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
