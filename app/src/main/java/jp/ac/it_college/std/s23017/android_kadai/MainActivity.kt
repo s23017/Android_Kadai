@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val DEBUG_TAG = "AsyncSample"
         private const val STAND_INFO_URL_TEMPLATE = "https://stand-by-me.herokuapp.com/api/v1/stands/"
+        private const val CHARACTER_INFO_URL_TEMPLATE = "https://stand-by-me.herokuapp.com/api/v1/characters/"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,8 +63,34 @@ class MainActivity : AppCompatActivity() {
         try {
             val root = JSONObject(result)
             val standName = root.getString("japaneseName")
+            val standUserId = root.getString("standUser")
 
             binding.tvStandName.text = "スタンド名: $standName"
+
+            // スタンド使いの情報を取得
+            fetchStandUserData(standUserId)
+
+        } catch (e: Exception) {
+            Log.e(DEBUG_TAG, "データの解析に失敗しました", e)
+        }
+    }
+
+    private fun fetchStandUserData(userId: String) {
+        val url = "$CHARACTER_INFO_URL_TEMPLATE$userId"
+        val backgroundReceiver = StandUserDataBackgroundReceiver(url)
+        val executeService = Executors.newSingleThreadExecutor()
+        val future = executeService.submit(backgroundReceiver)
+        val result = future.get()
+        showStandUserData(result)
+    }
+
+    private fun showStandUserData(result: String) {
+        try {
+            val root = JSONObject(result)
+            val userName = root.getString("japaneseName")
+
+            // スタンド使いの情報を表示
+            binding.tvStandUserName.text = "本体: $userName"
 
         } catch (e: Exception) {
             Log.e(DEBUG_TAG, "データの解析に失敗しました", e)
@@ -71,6 +98,30 @@ class MainActivity : AppCompatActivity() {
     }
 
     private class StandDataBackgroundReceiver(private val urlString: String) : Callable<String> {
+        override fun call(): String {
+            val url = URL(urlString)
+            val conn = (url.openConnection() as HttpURLConnection).apply {
+                connectTimeout = 10000
+                readTimeout = 10000
+                requestMethod = "GET"
+            }
+            return try {
+                conn.connect()
+                val result = conn.inputStream.reader().readText()
+                result
+            } catch (ex: SocketTimeoutException) {
+                Log.w(DEBUG_TAG, "通信タイムアウト", ex)
+                ""
+            } catch (ex: Exception) {
+                Log.e(DEBUG_TAG, "データ取得エラー", ex)
+                ""
+            } finally {
+                conn.disconnect()
+            }
+        }
+    }
+
+    private class StandUserDataBackgroundReceiver(private val urlString: String) : Callable<String> {
         override fun call(): String {
             val url = URL(urlString)
             val conn = (url.openConnection() as HttpURLConnection).apply {

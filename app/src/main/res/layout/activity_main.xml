@@ -6,24 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvStandName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="スタンド名: "
-        android:textSize="24sp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" />
-
-    <Button
-        android:id="@+id/btnReload"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="リロード"
-        android:layout_below="@id/tvStandName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -34,5 +16,34 @@
         app:title="ジョジョスタンド"
         app:titleTextAppearance="@style/TextAppearance.AppCompat.Display1"
         app:titleTextColor="@color/white" />
+
+    <TextView
+        android:id="@+id/tvStandName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="スタンド名: "
+        android:textSize="24sp"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/tvStandUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="本体: "
+        android:textSize="24sp"
+        android:layout_below="@id/tvStandName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btnReload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="リロード"
+        android:layout_below="@id/tvStandUserName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
 
 </RelativeLayout>
