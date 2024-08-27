@@ -37,12 +37,49 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp" />
 
+    <!-- 4つの選択肢ボタン -->
+    <Button
+        android:id="@+id/btnChoice1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="選択肢1"
+        android:layout_below="@id/tvStandUserName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btnChoice2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="選択肢2"
+        android:layout_below="@id/btnChoice1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/btnChoice3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="選択肢3"
+        android:layout_below="@id/btnChoice2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/btnChoice4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="選択肢4"
+        android:layout_below="@id/btnChoice3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
     <Button
         android:id="@+id/btnReload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="リロード"
-        android:layout_below="@id/tvStandUserName"
+        android:layout_below="@id/btnChoice4"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp" />
 
