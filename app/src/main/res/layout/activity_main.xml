@@ -1,3 +1,4 @@
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -32,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvStandUserName"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:text="スタンド1"
         android:textSize="24sp" />
 
@@ -77,11 +78,21 @@
         android:layout_marginTop="20dp"
         android:textColor="@android:color/holo_red_dark" />
 
+    <ImageView
+        android:id="@+id/imgResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvResult"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        android:contentDescription="@string/result_image" />
+
     <Button
         android:id="@+id/btnReload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvResult"
+        android:layout_below="@id/imgResult"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:text="次の問題"

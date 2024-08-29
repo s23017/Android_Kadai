@@ -27,10 +27,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Inflate the layout and initialize binding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // ボタンのクリックリスナー
+        // ボタンのクリックリスナーを設定
         binding.btnChoice1.setOnClickListener { checkAnswer(binding.btnChoice1.text.toString()) }
         binding.btnChoice2.setOnClickListener { checkAnswer(binding.btnChoice2.text.toString()) }
         binding.btnChoice3.setOnClickListener { checkAnswer(binding.btnChoice3.text.toString()) }
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnReload.setOnClickListener {
             fetchStandData()
             binding.tvResult.text = ""
+            binding.imgResult.visibility = View.GONE  // 画像を隠す
         }
 
         // 初回データ取得
@@ -129,9 +131,12 @@ class MainActivity : AppCompatActivity() {
     private fun checkAnswer(selectedAnswer: String) {
         if (selectedAnswer == correctStandName) {
             binding.tvResult.text = "グッド！"
+            binding.imgResult.setImageResource(R.drawable.good)  // good.jpgを表示
         } else {
             binding.tvResult.text = "不正解！ 答えは: $correctStandName"
+            binding.imgResult.setImageResource(R.drawable.bad)  // bad.jpgを表示
         }
+        binding.imgResult.visibility = View.VISIBLE  // 画像を表示
     }
 
     private inner class StandDataBackgroundReceiver(private val url: String) : Callable<String> {

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Android_Kadai</string>
     <string name="stand_image">画像の名前やパス</string>
+    <string name="result_image">Result image</string>
 </resources>
