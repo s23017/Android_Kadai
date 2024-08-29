@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getStandInfoUrl(): String {
-        val randomNumber = (1..100).random() // 1から100のランダムな整数を生成
+        val randomNumber = (1..129).random() //7部まで
         return "$STAND_INFO_URL_TEMPLATE$randomNumber"
     }
 
