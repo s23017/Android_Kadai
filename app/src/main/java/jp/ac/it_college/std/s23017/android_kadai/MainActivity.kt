@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkAnswer(selectedAnswer: String) {
         if (selectedAnswer == correctStandName) {
-            binding.tvResult.text = "グッド！"
+            binding.tvResult.text = "正解！"
             binding.imgResult.setImageResource(R.drawable.good)  // good.jpgを表示
         } else {
             binding.tvResult.text = "不正解！ 答えは: $correctStandName"

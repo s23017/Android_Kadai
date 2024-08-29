@@ -33,9 +33,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvStandUserName"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:text="スタンド1"
-        android:textSize="24sp" />
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/btnChoice2"
@@ -45,7 +45,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:text="スタンド2"
-        android:textSize="24sp" />
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/btnChoice3"
@@ -55,7 +55,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:text="スタンド3"
-        android:textSize="24sp" />
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/btnChoice4"
@@ -65,7 +65,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:text="スタンド4"
-        android:textSize="24sp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tvResult"
